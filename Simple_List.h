@@ -48,16 +48,13 @@ public:
 		return::insert_head(head_ptr, item);
 	}
 
-
 	node<T>* insert_before(node<T>* mark, const T& item) {
 		return::insert_before(head_ptr, mark, item);
 	}
 
-
 	node<T>* insert_after(node<T>* mark, const T& item) {
 		return::insert_after(head_ptr, mark, item);
 	}
-
 
 	//If I keep both--error: fxns only differ in return type cannot be overloaded
 	   //insert item. Assume sorted list
@@ -65,10 +62,7 @@ public:
 		return::InsertSorted(head_ptr, item);
 	}
 
-
-
 	//delete node pointed to by iMarker
-
 	T Delete(node<T>* iMarker) {
 		return::delete_head(head_ptr);
 		//        return::delete_node(head_ptr, iMarker); //for polynomial, but not for stack class

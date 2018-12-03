@@ -33,9 +33,13 @@ node<T>* insert_head(node<T>* &head_ptr, const T& item) {
 	//3. point head_ptr to where temp is pointing to
 	//4. return head_ptr
 
+	//cout << "headptr location: " << head_ptr << endl;;
 	node<T>* new_node = new node<T>(item);
+	//cout << "new node location: " << new_node << endl;
 	new_node->_next = head_ptr;
+	//cout << "new_node->next location: " << new_node->_next << endl;
 	head_ptr = new_node;
+	//cout << "headptr location after reassignment: " << head_ptr << endl;
 	return head_ptr;
 
 }
@@ -43,21 +47,20 @@ node<T>* insert_head(node<T>* &head_ptr, const T& item) {
 //IMPLEMENTED
 
 template<typename T>
-//insert_after takes in the address of the mark, and create a new node after the
-//mark and populate the new node with item and returns the address of the new node ptr
-node<T>* insert_after(node<T>* head_ptr, node<T>* mark, const T& item) {
-	//1. create a new node named new_node, populated with item
-	//2. new_node's _next points to mark's _next
-	//3. mark's _next now points to new_node
-	//4. return new_node
 
+node<T>* insert_after(node<T>* head_ptr, node<T>* mark, const T& item) {
 	//    node<T>* new_node = new node<T>(item);
 	//    new_node->_next = mark->_next;
 	//    mark->_next = new_node;
+	node<T>* new_node = new node<T>(item);
+	new_node->_next = mark->_next;
+	mark->_next = new_node;
+	return new_node;
 
-	assert(mark != nullptr);
-
-	return insert_head(mark->_next, item);
+	//cout << "mark_item: " << mark->_item << endl;
+	//cout << "mark location: " << mark << endl;
+	//cout << "mark->next location: " << mark->_next << endl;
+	//return insert_head(mark->_next, item);
 }
 
 //IMPLEMENTED
@@ -179,7 +182,7 @@ T delete_head(node<T>*& head_ptr) {
 	T hold_this = head_ptr->_item;
 	node<T>* temp = head_ptr;
 	head_ptr = head_ptr->_next;
-	delete temp;
+	delete temp; //this is where the exception is thrown
 
 	return hold_this;
 }
@@ -248,8 +251,10 @@ template<typename T>
 //delete all node
 void clear_list(node<T>*& head_ptr) {
 	//    node<T>* walker = head_ptr;
+	//cout << "CLEAR LIST CALLED";
 
 	while (head_ptr != nullptr) {
+		//cout << "headptr: " << head_ptr << endl;
 		delete_head(head_ptr);
 	}
 }

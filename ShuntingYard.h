@@ -7,18 +7,17 @@
 #include "Operator.h"
 #include <iostream>
 
-Queue<Token*> shuntingYard(Queue<Token*> infixQueue) {
+Queue<Token*> shuntingYard(Queue<Token*>& infixQueue) {
 	
 	Queue<Token*> postfixQueue;
 	Stack<Operator*> operatorStack;
-	while (!infixQueue.empty()) {
 
+	while (!infixQueue.empty()) {
 		Token* item = infixQueue.pop();
 		if (item->getType() == 0) {
 			postfixQueue.push(item);
 		}
 		else if (item->getType() == 1) {
-
 			Operator* opItem = static_cast<Operator*>(item);
 			if (opItem->getSymbol() == '(') {
 				operatorStack.push(opItem);
@@ -35,7 +34,6 @@ Queue<Token*> shuntingYard(Queue<Token*> infixQueue) {
 				}
 				operatorStack.push(opItem);
 			}
-
 		}
 	}
 

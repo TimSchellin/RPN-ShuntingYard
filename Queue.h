@@ -34,6 +34,7 @@ public:
 	//destructor
 
 	~Queue() {
+		//cout << "destructor called\n";
 		// Delete the list, set front and rear to null
 		clear_list(front);
 		front = nullptr;
@@ -44,6 +45,7 @@ public:
 	//NOT YET TESTED
 
 	Queue<T>& operator=(const Queue<T>& rhs) {
+		//cout << "ass\n";
 		//self-check
 		if (*this == rhs) {
 			return *this;
@@ -66,19 +68,21 @@ public:
 	// pushes item to the rear
 
 	void push(const T& item) {
-
+		//cout << "PUSHED YA BABE\n";
 		// declare a walker to traverse down the queue
 		node<T>* walker = front;
-
+		//cout << "front location: " << front << endl;
+		//cout << "rear location: " << rear << endl;
 		// if the queue is empty, create a new node of capacity 1
 		if (walker == rear) {
+			//cout << "helloya waddle\n";
 			insert_head(front, item);
 			rear = LastNode(front);
 			//qqq LastNode takes way too long to run
 			//            walker->_next = rear;
 		}// Does this work?
 		else {
-
+			//cout << "hello babe\n";
 			while (walker->_next != rear) {
 				walker = walker->_next;
 			}
@@ -87,6 +91,7 @@ public:
 			rear = LastNode(front);
 		}
 
+		//cout << "front: " << front << endl;
 		//queue size enlarges by 1
 		this->size++;
 	}
@@ -100,8 +105,10 @@ public:
 		//decrement the queue size
 		size--;
 		// hold the item front of the queue and delete front
-		T hold = delete_head(front);
-
+		//cout << "POPPPED" << endl;
+		//cout << "frontey: " << front << endl;
+		T hold = delete_head(front);               //THIS MIGHT BE THE ISSUE
+		//cout << "HEAD DELETED\n";
 		//NOOOOOOOO!!! What about the rear??
 		// reset rear to the last element
 		rear = LastNode(front);
@@ -124,6 +131,7 @@ public:
 		return this->size == 0;
 	}
 
+	/*
 	template <class U>
 	friend ostream& operator<<(ostream& outs, const Queue<U>& q) {
 		node<U>* walker = q.front;
@@ -136,7 +144,7 @@ public:
 
 	int getSize() {
 		return size;
-	}
+	}*/
 
 private:
 	node<T>* front;

@@ -5,6 +5,8 @@
 #include "ShuntingYard.h"
 #include "StringToQueue.h"
 #include <iostream>
+#include <string>
+#include <cassert>
 
 using namespace std;
 
@@ -12,13 +14,15 @@ using namespace std;
 void pause();
 
 int main() {
-	Queue<Token*> infixQueue = convert("3.0*4.1+8.2");
+	Queue<Token*> infixQueue = convert("3.0*69+2-22.3/8+(7-3)*sin(26)");
 	cout << "conversion successful\n";
 	while (!infixQueue.empty()) {
 		cout << "\n";
 		infixQueue.pop()->print();
+
 	}
-}
+	pause();
+}	
 	/*
 	//sayHi();
 	Operand n1(6.0);
