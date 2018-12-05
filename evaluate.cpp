@@ -4,6 +4,7 @@
 #include "Operand.h"
 #include "Operator.h"
 
+
 double evaluate(Token lhs, Token  rhs, Token optr) {
 	assert(optr.getType() == 1); //make sure 1 is for operators, and not operands
 	switch (optr.getSymbol()) {

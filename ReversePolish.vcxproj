@@ -115,10 +115,12 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="FunctionOperator.cpp" />
     <ClCompile Include="main.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\..\..\..\..\..\CS3A\LinkedList\LinkedList\List.h" />
+    <ClInclude Include="FunctionOperator.h" />
     <ClInclude Include="Linked_List.h" />
     <ClInclude Include="Operand.h" />
     <ClInclude Include="Operator.h" />

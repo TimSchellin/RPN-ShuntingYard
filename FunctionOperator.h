@@ -6,6 +6,8 @@
 #include <iostream>
 #include <cmath>
 #include <vector>
+#include <algorithm>
+#include "Operand.h"
 
 class FunctionOperator : public Token {
 
@@ -15,13 +17,11 @@ public:
 		str = inputFunction;
 	}
 
-	void print() {
-		std::cout << str;
+	void print(ostream& outs = cout) const {
+		outs << str;
 	}
-	double calculate(Operand input) {
-		if (str == "sin" || str == "sine"){ return }
+	double calculate(Operand& input, string functionString);
 
-	}
 private:
 	string str;
 };

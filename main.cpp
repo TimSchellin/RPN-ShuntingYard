@@ -6,7 +6,9 @@
 #include "StringToQueue.h"
 #include <iostream>
 #include <string>
-#include <cassert>
+//#include <cassert>
+#include <vector>
+#include <algorithm>
 
 using namespace std;
 
@@ -14,13 +16,27 @@ using namespace std;
 void pause();
 
 int main() {
-	Queue<Token*> infixQueue = convert("3.0*69+2-22.3/8+(7-3)*sin(26)");
-	cout << "conversion successful\n";
+
+
+	/*
+	Queue<Token*> infixQueue = convert("3.0*69+2-22");//.3/8+(7-3)*sin(26)");
+
+	
 	while (!infixQueue.empty()) {
 		cout << "\n";
 		infixQueue.pop()->print();
-
 	}
+	
+	cout << "\n conversion passed \n";
+	
+	Queue<Token*> postfixQueue = shuntingYard(infixQueue);
+	int i = 1;
+	while (!postfixQueue.empty()) {
+		postfixQueue.pop()->print();
+	}
+
+	cout << "\n shunting passed \n";
+	*/
 	pause();
 }	
 	/*

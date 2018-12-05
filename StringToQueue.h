@@ -14,8 +14,8 @@
 using namespace std;
 
 //prototypes
-bool isNumber(char testChar);
-bool isSymbol(char testChar);
+bool isNumber(char);
+bool isSymbol(char);
 
 Queue<Token*> infixExpression;
 
